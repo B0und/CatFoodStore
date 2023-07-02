@@ -1,11 +1,27 @@
 import { createRoot } from 'react-dom/client';
-import { App } from './app';
+
 import { StrictMode } from 'react';
+
+import './styles.css';
+
+import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom';
+import { CatalogPage } from './pages/catalog';
+
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <Link to='/catalog'>Catalog</Link>,
+	},
+	{
+		path: '/catalog',
+		element: <CatalogPage />,
+	},
+]);
 
 const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
 root.render(
 	<StrictMode>
-		<App />
+		<RouterProvider router={router} />
 	</StrictMode>
 );
