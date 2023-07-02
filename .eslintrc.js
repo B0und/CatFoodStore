@@ -9,6 +9,11 @@ module.exports = {
 		react: {
 			version: 'detect',
 		},
+		'import/resolver': {
+			node: {
+				extensions: ['.js', '.jsx', '.ts', '.tsx'],
+			},
+		},
 	},
 	extends: [
 		'plugin:@typescript-eslint/recommended',
@@ -30,5 +35,11 @@ module.exports = {
 		'react/prop-types': 'off',
 		'react/jsx-uses-react': 'off',
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
+		'import/no-unresolved': [
+			'error',
+			{
+				ignore: ['.svg'],
+			},
+		],
 	},
 };

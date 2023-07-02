@@ -1,8 +1,10 @@
 declare module '*.svg' {
-	import React = require('react');
-	export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-	const src: string;
-	export default src;
+	const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+	export default content;
+}
+declare module '*.svg?url' {
+	const url: string;
+	export default url;
 }
 declare module '*.png' {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -10,9 +10,7 @@ module.exports = {
 	entry: path.resolve(__dirname, '..', './src/index.tsx'), //точка входа в наше приложение содержит абсолютный путь к index.ts
 	output: {
 		path: path.resolve(__dirname, '..', './dist'), //путь куда будет собираться наш проект
-		filename: production
-			? 'static/scripts/[name].[contenthash].js'
-			: 'static/scripts/[name].js', // имя нашего бандла
+		filename: production ? 'static/scripts/[name].[contenthash].js' : 'static/scripts/[name].js', // имя нашего бандла
 	},
 	//Нужно помочь вебпаку научится работать с jsx и tsx файлами для этого используют ts loader
 	module: {
@@ -22,6 +20,9 @@ module.exports = {
 				use: [
 					{
 						loader: 'ts-loader',
+						options: {
+							transpileOnly: true,
+						},
 					},
 				], // для того чтобы ts-loader корректно отработал нам нужен tsconfig его можно создать вручную, а можно создать автоматически
 				/** чтобы проиницилизовать его автоматически можно установить пакет typesctipt глобально или использовать npx выполнив команду npx tsc --init
@@ -29,7 +30,7 @@ module.exports = {
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.(png|jpg|gif|webp)$/,
+				test: /\.(png|jpg|gif|webp|svg)$/,
 				type: 'asset/resource',
 				generator: {
 					filename: 'static/images/[hash][ext][query]',
@@ -44,7 +45,13 @@ module.exports = {
 			},
 			{
 				test: /\.svg$/i,
+				type: 'asset',
+				resourceQuery: /url/, // *.svg?url
+			},
+			{
+				test: /\.svg$/,
 				issuer: /\.[jt]sx?$/,
+				resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
 				use: ['@svgr/webpack', 'url-loader'],
 			},
 			{
@@ -73,12 +80,11 @@ module.exports = {
 	plugins: [
 		new HTMLWebpackPlugins({
 			template: path.resolve(__dirname, '..', './public/index.html'),
+			favicon: path.resolve(__dirname, '..', './public/favicon.svg'),
 		}),
 		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
-			filename: production
-				? 'static/styles/[name].[contenthash].css'
-				: 'static/styles/[name].css',
+			filename: production ? 'static/styles/[name].[contenthash].css' : 'static/styles/[name].css',
 		}),
 		new webpack.EnvironmentPlugin({
 			NODE_ENV: 'development', // значение по умолчанию 'development' если переменная process.env.NODE_ENV не передана
