@@ -16,11 +16,5 @@
 	:root {
 		--background: #ffffff;
 		--foreground: #0f172a;
-
-		--popover: #ffffff;
-		--popover-foreground: #0f172a;
-
-		--accent: #f1f5f9;
-		--accent-foreground: #0f172a;
 	}
 }

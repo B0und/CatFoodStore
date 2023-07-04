@@ -33,10 +33,10 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(({ className,
 						setSearchParams({ search: '' });
 					}}
 					className='absolute right-[12px] top-1/2 -translate-y-1/2 text-secondary_text hover:text-primary_text hover:ring-transparent'>
-					<X className='text-current' />
+					<X className='h-4 w-4 text-current' />
 				</Button>
 			) : (
-				<Search className='pointer-events-none absolute right-[20px] top-1/2 h-6 w-6 -translate-y-1/2 text-secondary_text' />
+				<Search className='pointer-events-none absolute right-[20px] top-1/2 h-4 w-4  -translate-y-1/2 text-secondary_text' />
 			)}
 		</div>
 	);

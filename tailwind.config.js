@@ -21,9 +21,15 @@ module.exports = {
 				nunito: ['Nunito', ...defaultTheme.fontFamily.sans],
 			},
 			borderRadius: {
-				'01': '0.5rem',
-				'02': '0.75rem',
-				'03': '1.25rem',
+				'01': '0.5rem', // 8
+				'02': '0.75rem', // 12
+				'03': '1.25rem', // 20
+			},
+			boxShadow: {
+				elevation04: '0px 8px 16px 0px rgba(96, 97, 112, 0.16), 0px 2px 4px 0px rgba(40, 41, 61, 0.04)',
+			},
+			gridTemplateColumns: {
+				'product-sm': 'repeat(auto-fill, minmax(150px, 1fr))',
 			},
 		},
 	},

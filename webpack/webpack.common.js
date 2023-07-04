@@ -21,7 +21,7 @@ module.exports = {
 					{
 						loader: 'ts-loader',
 						options: {
-							transpileOnly: true,
+							transpileOnly: !production,
 						},
 					},
 				], // для того чтобы ts-loader корректно отработал нам нужен tsconfig его можно создать вручную, а можно создать автоматически
