@@ -10,7 +10,7 @@ import { CatalogPage } from './pages/catalog';
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Link to='/catalog'>Catalog</Link>,
+		element: <Link to='/catalog'>Нажмите чтобы перейти на страницу Catalog</Link>,
 	},
 	{
 		path: '/catalog',
