@@ -29,7 +29,11 @@ module.exports = {
 				elevation04: '0px 8px 16px 0px rgba(96, 97, 112, 0.16), 0px 2px 4px 0px rgba(40, 41, 61, 0.04)',
 			},
 			gridTemplateColumns: {
-				'product-sm': 'repeat(auto-fill, minmax(150px, 1fr))',
+				'product-sm': 'repeat(auto-fill, minmax(168px, 1fr))',
+				'product-md': 'repeat(auto-fill, minmax(236px, 1fr))',
+			},
+			spacing: {
+				'page-size': '992px',
 			},
 		},
 	},

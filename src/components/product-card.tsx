@@ -12,15 +12,19 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 	const price = isDiscount ? Math.floor((product.price * (100 - product.discount)) / 100) : product.price;
 
 	return (
-		<div className='relative flex flex-col items-start gap-3'>
+		<div className='relative flex flex-col items-start gap-3 md:gap-4'>
 			{isDiscount && (
 				<span className='absolute left-0 top-0 rounded-03 bg-custom_red px-2 py-[2px] font-extrabold text-white'>{`-${product.discount}%`}</span>
 			)}
-			<Button variant='ghost' className='absolute right-0 top-0'>
+			<Button variant='ghost' className='absolute -right-1 top-0'>
 				<Heart />
 				<span className='sr-only'>Добавить в избранное</span>
 			</Button>
-			<img src={product.picture} alt={product.description} className='mb-3 h-[125px] w-[168px] object-contain' />
+			<img
+				src={product.picture}
+				alt={product.description}
+				className='mb-3 h-[125px] w-[168px] object-contain md:h-[187px] md:w-[236px]'
+			/>
 			<div>
 				<p className={cn('text-xs font-semibold ', isDiscount && 'line-through')}>
 					{isDiscount ? `${product.price}  ₽` : <span>&nbsp;</span>}
@@ -28,7 +32,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 				<p
 					className={cn('text-xl font-extrabold text-primary_text', isDiscount && 'text-custom_red')}>{`${price} ₽`}</p>
 				<p className='text-xs text-secondary_text'>{product.weight}</p>
-				<h3 className='line-clamp-2 text-sm font-semibold text-primary_text'>{product.name}</h3>
+				<h3 className='line-clamp-2 text-sm font-semibold text-primary_text md:text-base'>{product.name}</h3>
 			</div>
 			<Button className='mt-auto'>В корзину</Button>
 		</div>

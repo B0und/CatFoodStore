@@ -1,6 +1,6 @@
 import { SelectContent, SelectItem, SelectRoot, SelectTrigger, SelectValue } from './ui/select';
 
-const filterItems = [
+export const filterItems = [
 	'Популярные',
 	'Новинки',
 	'Сначала дешёвые',
@@ -12,7 +12,7 @@ const filterItems = [
 export const MobileFilterSelect = () => {
 	return (
 		<SelectRoot defaultValue={filterItems[0]}>
-			<SelectTrigger>
+			<SelectTrigger className='md:hidden'>
 				<SelectValue />
 			</SelectTrigger>
 			<SelectContent>

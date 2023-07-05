@@ -11,11 +11,11 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(({ className,
 	const searchText = searchParams.get('search');
 
 	return (
-		<div className='relative'>
+		<div className='relative max-w-[215px] flex-1 md:max-w-[468px]'>
 			<input
 				type={type}
 				className={cn(
-					'flex h-12 w-full rounded-3xl border border-outline_bg px-5 py-[14px] pr-14 text-base text-primary_text placeholder:text-secondary_text  focus-visible:border-main focus-visible:outline-none  disabled:cursor-not-allowed',
+					'flex h-12 w-full rounded-3xl border border-outline_bg px-5 py-[14px] pr-14 text-base text-primary_text placeholder:text-secondary_text focus-visible:border-main  focus-visible:outline-none disabled:cursor-not-allowed ',
 					className
 				)}
 				ref={ref}
