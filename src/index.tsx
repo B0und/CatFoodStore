@@ -6,11 +6,16 @@ import './styles.css';
 
 import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom';
 import { CatalogPage } from './pages/catalog';
+import { Button } from './components/ui/button';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Link to='/catalog'>Нажмите чтобы перейти на страницу Catalog</Link>,
+		element: (
+			<Button asChild>
+				<Link to='/catalog'>Нажмите чтобы перейти на страницу Catalog</Link>
+			</Button>
+		),
 	},
 	{
 		path: '/catalog',
